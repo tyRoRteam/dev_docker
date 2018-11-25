@@ -1,6 +1,6 @@
 # How To Use
 
-## Download git repo 
+## Download git repo
 - git clone https://github.com/tyRoRteam/dev_docker.git
 
 ## Build and Run RoR development docker

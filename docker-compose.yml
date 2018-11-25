@@ -1,0 +1,10 @@
+version: '3'
+services:
+  ror_dev:
+    build: ror_dev/
+    ports:
+      - "10022:22"
+    volumes:
+      - ./user_home:/home/user
+      - ./configs/sshd_config:/etc/ssh/sshd_config
+

@@ -21,7 +21,13 @@ ENV LC_ALL en_US.UTF-8
 # Install extra packages for RoR project development
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
 
+#---------------------------
+# see update.sh for why all "apt-get install"s have to stay as one long line
+RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
+# see http://guides.rubyonrails.org/command_line.html#rails-dbconsole
+RUN apt-get update && apt-get install -y mysql-client postgresql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
+#---------------------------
 # Create 'user' account to the image
 RUN useradd -m -d /home/user -s /bin/bash user -G sudo &&\
     echo "user:user" | chpasswd

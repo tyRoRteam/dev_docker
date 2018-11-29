@@ -4,6 +4,7 @@ services:
     build: ror_dev/
     ports:
       - "10022:22"
+      - "10080:3000"
     volumes:
       - ./user_home:/home/user
       - ./configs/sshd_config:/etc/ssh/sshd_config

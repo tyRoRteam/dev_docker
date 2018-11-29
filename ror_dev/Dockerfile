@@ -23,8 +23,10 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
 
 
 # Create 'user' account to the image
-RUN useradd -m -d /home/user -s /bin/bash user &&\
+RUN useradd -m -d /home/user -s /bin/bash user -G sudo &&\
     echo "user:user" | chpasswd
+
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # Standard SSH port
 EXPOSE 22

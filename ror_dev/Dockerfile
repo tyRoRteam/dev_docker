@@ -19,7 +19,8 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Install extra packages for RoR project development
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev git-core bash-completion \
+    vim tmux
 
 #---------------------------
 # see update.sh for why all "apt-get install"s have to stay as one long line
